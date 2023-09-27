@@ -1,0 +1,28 @@
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="../static/css/landing.css">  
+{% endblock style %}
+   
+{% block body %}
+ <section class="about" id="about">
+    <div class="image">
+        <img src="../static/image/about.jpg" alt="">
+        
+    </div>
+    <div class="content">
+        <h3>A <span> Pet Care </span> Company</h3>
+        <p>PetMama is a company we have bulit to take care of your fur babies.We provide a complete solution to your fur babies.</p>
+         <a href="#" class="btn">Read More</a>
+    </div>
+   </section>
+
+   {% block script %}
+   <script src="../static/js/script.js"></script>
+   {% endblock script %}
+{% endblock body %}

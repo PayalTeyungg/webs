@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<link rel="stylesheet" href="../static/css/food.css">  
+{% endblock style %}
+         
+    </head>
+    {% block body %}
+       <div class="main">
+        <div class="register">
+            <h2>Food Menu</h2>
+            
+                {% csrf_token %} 
+                <label>Pet Name :</label>
+                <br>
+                <input type="text" name="name" id="name" placeholder="enter the breed of your dog">
+                <br><br>
+                <label>Age :</label>
+                <br>
+                <input type="number" name="age" min="0" oninput="validity.valid||(value='')" ; id="number" placeholder="enter the age">
+                <br><br>
+                
+                
+                
+                <label> Weight :</label>
+                <br>
+                &nbsp;&nbsp;&nbsp;
+                <input type="number" name="weight" min="0" max="40" oninput="validity.valid||(value='')" ; id="weight" placeholder="enter the weight">
+                &nbsp;
+                
+                <br><br>
+                <button onclick="answer()">Submit</button>
+               
+
+            
+        </div>
+        <div class="demo"></div>
+       </div>
+       
+
+     {% block script %}
+     <script type="text/javascript">
+    
+
+         function answer(){
+             var name = document.getElementById('name').value;
+             var age = document.getElementById('number').value;
+             var weight = document.getElementById('weight').value;
+             var string = name;
+             
+              
+             
+         }
+         document.getElementsByClassName("demo").innerHTML = text;
+     </script>
+     {% endblock script %}
+     {% endblock body %}
+</html>

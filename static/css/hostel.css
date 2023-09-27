@@ -1,0 +1,83 @@
+:root{
+    --transition: all 0.7s;
+    --yellow: #f9d342;
+    --dark: #292826;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Playfair Display',serif;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+    padding: 8px 0;
+}
+
+img{
+    width: 100%;
+    
+}
+
+@media(max-width: 500px){
+    body{
+        font-size: 14px;
+    }
+}
+
+.header{
+    background: linear-gradient(rgba(0, 0, 0 , 0.6),rgba(0, 0, 0, 0.2)),url('Hos1.jpg')center/cover no-repeat;
+    min-height: 100vh;
+    color: #1b1818;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}
+
+.head-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.head-top span{
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+
+.head-top span:hover{
+    color: var(--yellow);
+}
+.btn-book{
+    background-color: #ede9e6;
+    color: #e67e22;
+    margin: 7px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 23px;
+    border: 2px solid rgb(243, 236, 243);
+    border-radius: 7px;
+
+}
+.book .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:0.5rem;
+  }
+  
+  .book .row .image{
+    flex: 1 1 30rem;
+  }
+  
+  .book .row .image img{
+    width: 100%;
+  }

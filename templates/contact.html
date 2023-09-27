@@ -1,0 +1,84 @@
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<link rel="stylesheet" href="../static/css/landing.css">  
+{% endblock style %}
+
+
+{% block body %}
+<section class="contact" id="contact">
+    <div class="image">
+        <img src="../static/image/contact.jpeg" alt="">
+    </div>
+
+    <form  id="your-form" action="" method="post" >
+         <h3>Contact Us</h3>
+         {% csrf_token %} 
+         
+       
+        <tr>
+            <th>
+                <label for="name">Your Name:</label>
+            </th>
+            <td>
+                <input type="text" name="client_name" maxlength="255" required id="name">
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+            <label for="id_email"> Your Email:</label>
+            </th>
+            <td>
+            <input type="email" name="email" maxlength="254" required id="id_email">
+            </td>
+        </tr>
+    <tr>
+        <th>
+            <label for="phonenumber">Your Number:</label>
+        </th>
+        <td>
+            <input type="text" name="contactnumber"  required id="phonenumber">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="id_message">Message:</label>
+        </th>
+        <td>
+            <textarea name="message" cols="40" rows="10" required id="id_message" ></textarea>
+        </td>
+    </tr>
+       
+        
+        <input type="submit" value="Send Message" class="btn">
+
+
+    </form>
+   </section>
+
+   {% block script %}
+
+ <script>  var contactNumberInput = document.getElementById('phonenumber');
+
+    contactNumberInput.addEventListener('input', function() {
+        var contactNumber = contactNumberInput.value;
+        var contactNumberPattern = /^\d{10}$/;
+        
+        if (!contactNumberPattern.test(contactNumber)) {
+            contactNumberInput.setCustomValidity('Please enter a 10-digit number.');
+        } else {
+            contactNumberInput.setCustomValidity('');
+        }
+    });</script> 
+    
+   <script src="../static/js/script.js"></script>
+   {% endblock script %}
+{% endblock body %}

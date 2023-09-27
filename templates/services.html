@@ -1,0 +1,58 @@
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<link rel="stylesheet" href="../static/css/landing.css">  
+{% endblock style %}
+
+
+{% block body %}
+        <section class="services" id="services">
+
+            <h1 class="heading">Our <span>Services</span>
+            </h1>
+            <div class="box-container">
+                <div class="box">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Appointment</h3>
+                    <a href="{% url 'book' %}" class="btn">Book Appointment</a>
+    
+                </div>
+                
+    
+                <div class="box">
+                    <i class="fas fa-heart"></i>
+                    <h3>Insurance Plans</h3>
+                    <a href="{% url 'insurance' %}" class="btn">Buy a Plan</a>
+                </div>
+    
+                <div class="box">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Hostel Facilities</h3>
+                    <a href="{% url 'hostel' %}" class="btn">Book Now</a>
+                </div>
+                <div class="box">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>Food Menu</h3>
+                    <a href="{%  url 'food' %}" class="btn">View Now</a>
+                </div>
+                
+                
+    
+            </div>
+           </section>
+    
+           
+    
+
+              {% block script %}
+    
+              <script src="../static/js/script.js"></script>
+              {% endblock script %}
+    {% endblock body %}

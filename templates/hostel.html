@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<link rel="stylesheet" href="../static/css/hostel.css">  
+{% endblock style %}
+    {% block body %}
+        <header class="header" id="header">
+            <div class="heaad-top">
+                <div class="site-name">
+                    <img src="../static/image/banner-img.jpg" style="width:50%; height:10%;">
+                </div>
+                <div class="site-nav">
+                    <span id="nav-btn">
+                    </span>
+                </div>
+            </div>
+            
+            <div class="head-bottom flex">
+                <h2>Comfortable place for your lovely pets</h2>
+                <p>Welcome to our Dog Hostel, the ultimate retreat for your canine companions.
+                  We offer a cozy and nurturing environment where dogs can relax and have a tail-wagging good time.
+                  Our dedicated team provides personalized care, engaging activities, and all the comforts of home. 
+                  Trust us to make your dog's stay memorable and enjoyable. 
+                  Book their stay now and let them experience the love and pampering they deserve!
+                </p>
+                    {% csrf_token%}
+                    <a href="{%  url 'booking' %}" class="btn-book">Start Booking</a>
+                
+            </div>
+
+        </header>
+        {% endblock body%}

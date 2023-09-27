@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+
+{% block style %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<link rel="stylesheet" href="../static/css/booking.css">  
+
+{% endblock style %}
+    
+    <script type="text/javascript">
+        function validation()
+        {
+            var N,E,P,B,x;
+            N=document.getElementById('Name').value;
+            E=document.getElementById('Email').value;
+            P=document.getElementById('PhoneNumber').value;
+            B=document.getElementById('BookingDate').value;
+            if(N==' ' || E==' ' || P==' ' || B==' ')
+                alert("Please fill all the details");
+            else
+                alert("Your Registration is succesful");
+
+
+        }
+    </script>
+</head>
+{%block body%}
+    <section>
+        <div class="div">
+            <h2>Booking Form</h2>
+            {%csrf_token%}
+            <form>
+               
+                <input type="text" id="Name" placeholder="Full Name" class="user" name=""><br>
+                <input type="email" id="email" placeholder="Email Id" class="mail" name=""><br>
+                <input type="phone" id="PhoneNumber" placeholder="Number" class="user" min="0" maxlength="10" name=""><br>
+                <input type="Date" id="BookingDate" placeholder="Booking Date(DD/MM/YY)" class="pass" name=""><br><br>
+                <input type="submit" value="Book Now" class="Button" onclick="validation()" name="">
+               
+            </form>
+        </div>
+    </section>
+{%endblock body%}
+</html>

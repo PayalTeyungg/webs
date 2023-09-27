@@ -1,0 +1,33 @@
+{% extends 'Home.html' %}
+{% block title %}
+Landing
+{% endblock title %}
+
+
+{% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="../static/css/home.css">  
+{% endblock style %}
+{% block body %}
+<main>
+    <section id="Hero">
+        <h1>Welcome!<br><span>To our New Website.</span></h1>
+        <p>
+            The best place for Caring Your Loving PETS
+        </p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+
+    </section>
+</main>
+
+
+{% block script %}
+<script src="../static/js/script.js"></script>
+{% endblock script %}
+{% endblock body %}
