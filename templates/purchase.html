@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'Home.html' %}
+{% block title %}
+Pet Care
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="../static/css/payment.css">
+{%endblock style%}
+<script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script> 
+{%block body%}
+    <h1>Pet Insurance Form</h1>
+    <form id="insuranceForm" method="post" onclick="return validateForm()">
+        {% csrf_token %}
+        <label for="petName">Pet Name:</label>
+        <input type="text" id="petName" name="petName" required>
+        <br><br>
+
+        <label for="ownerName">Owner Name:</label>
+        <input type="text" id="ownerName" name="ownerName" required>
+        <br><br>
+        
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+        <br><br>
+
+        
+        <label for="insuranceName">Insurance Name:</label>
+        <input type="text" id="insuranceName" name="insuranceName" required>
+        <br><br>
+
+
+        <label for="startDate">Start Date:</label>
+        <input type="Date" id="startDate"name="startDate" required>
+        <br><br>
+        <button onclick="validateForm()" id="payment-button">Submit and Pay with Khalti</button>
+        
+    </form>
+
+    <script>
+        function validateForm() {
+            var petName = document.getElementById("petName").value;
+            var insuranceName = document.getElementById("insuranceName").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var ownerName = document.getElementById("ownerName").value;
+
+            // Simple validation example (you can add more checks as needed)
+            if (petName === "" || insuranceName === "" || phoneNumber === "" || ownerName === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            // You can add more complex validation rules here
+
+            return true; // Form will submit if validation passes
+        }
+    </script>
+    <script src="../static/khalti.js">
+        
+    </script>
+{%endblock body%}
+</html>
+

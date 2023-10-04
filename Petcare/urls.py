@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app1 import views
+from app1.views import *
 
 admin.site.site_header = 'Pet Care'
 admin.site.site_title = 'Pet Care'
@@ -32,13 +33,17 @@ urlpatterns = [
     # path('dashboard/',views.Dashboard,name='dashboard'),
     path('services/',views.servicepage,name='services'),
     path('about/',views.about,name='about'),
-      path('contact/',views.contact,name='contact'),
-        path("book/",views.book,name='book'),
-        path("food/",views.food,name="food"),
-        path("insurance/",views.insurance,name="insurance"),
-        path("hostel/",views.hostel,name="hostel"),
-        path("booking/",views.booking,name='booking'),
-
+    path('contact/',views.contact,name='contact'),
+    path("book/",views.book,name='book'),
+    path("food/",views.food,name="food"),
+    path("insurance/",views.insurance,name="insurance"),
+    path("hostel/",views.hostel,name="hostel"),
+    path("booking/",views.booking,name='booking'),
+    path('<int:plan_id>/purchase/', views.purchase_insurance, name='purchase_insurance'),
+    path('purchase/success/', views.purchase_success, name='insurance_purchase_success'),
+    
+    
+    
 ]
 
 

@@ -51,8 +51,35 @@ input#name{
     background-color: #fff;
     box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
 }
+input#number{
+    width:300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
 
-input#submit{
+input#weight{
+    width:300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+input#breed{
+    width:300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+.button{
     width:200px;
     padding: 7px;
     font-size: 16px;

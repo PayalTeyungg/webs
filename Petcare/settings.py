@@ -35,13 +35,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'app1.apps.App1Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app1',
+    
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'Petcare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
     }
 }
 
@@ -132,8 +133,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CONTACT_EMAIL = 'f8rajiv@gmail.com'
-ADMIN_EMAIL = ['f9rajiv@gmail.com', ]
+CONTACT_EMAIL = 'payal@gmail.com'
+ADMIN_EMAIL = ['payal@gmail.com', ]
 
 
 # Twilio SendGrid
@@ -142,3 +143,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
+
+
+
+
+KHALTIAPI_PUBLIC_KEY = 'd23aaa567208478b8b4b36200d02d113'
+KHALTIAPI_SECRET_KEY = '6bbfd17c132447dd882beafb358eda0b'
