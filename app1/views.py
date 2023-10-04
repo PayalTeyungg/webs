@@ -12,9 +12,7 @@ from django.http import HttpResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
 import requests
-from django.conf import settings
-from .forms import InsurancePurchaseForm
-from .models import InsurancePurchase
+
 
 # Create your views here.
 
@@ -101,54 +99,7 @@ def insurance(request):
     return render(request,'insurance.html')
 def booking(request):
     return render(request,'booking.html')
-def purchase_insurance(request, plan_id):
-    # Get the selected insurance plan
-    insurance_plan = get_object_or_404(InsurancePlan, id=plan_id)
-    
-    if request.method == 'POST':
-        form = InsurancePurchaseForm(request.POST)
-        if form.is_valid():
-            # Generate a unique transaction ID
-            transaction_id = generate_transaction_id()
-            
-            # Create a record of the insurance purchase
-            purchase = form.save(commit=False)
-            purchase.user = request.user
-            purchase.insurance_plan = insurance_plan
-            purchase.transaction_id = transaction_id
-            purchase.save()
-            
-            # Construct the payment request data
-            payload = {
-                'public_key': settings.KHALTI_PUBLIC_KEY,
-                'amount': insurance_plan.premium_amount,
-                'product_identity': transaction_id,
-                'product_name': f"Insurance - {insurance_plan.name}",
-                'product_url': request.build_absolute_uri(reverse('insurance_purchase_success')),
-            }
-            
-            # Send the payment request to Khalti
-            response = requests.post('https://khalti.com/api/v2/payment/initiate', data=payload)
-            
-            if response.status_code == 200:
-                data = response.json()
-                # Redirect to the Khalti payment page
-                return redirect(data['redirect'])
-            else:
-                # Handle the error
-                return render(request, 'insurance/error.html', {'error_message': 'Payment initiation failed.'})
-    else:
-        form = InsurancePurchaseForm()
-    
-    return render(request, 'insurance/purchase.html', {'form': form, 'insurance_plan': insurance_plan})
+def payment(request):
+    return render(request, 'payment.html')
+   
 
-def purchase_success(request):
-    # Handle the success callback from Khalti
-    transaction_id = request.GET.get('product_identity')
-    purchase = get_object_or_404(InsurancePurchase, transaction_id=transaction_id)
-    
-    # Update the payment status
-    purchase.payment_status = True
-    purchase.save()
-    
-    return render(request, 'insurance/purchase_success.html', {'purchase': purchase})

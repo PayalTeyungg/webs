@@ -8,7 +8,7 @@ Pet Care
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="../static/css/payment.css">
 {%endblock style%}
-<script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script> 
+
 {%block body%}
     <h1>Pet Insurance Form</h1>
     <form id="insuranceForm" method="post" onclick="return validateForm()">
@@ -45,6 +45,7 @@ Pet Care
             var insuranceName = document.getElementById("insuranceName").value;
             var phoneNumber = document.getElementById("phoneNumber").value;
             var ownerName = document.getElementById("ownerName").value;
+            var ownerName = document.getElementById("startDate").value;
 
             // Simple validation example (you can add more checks as needed)
             if (petName === "" || insuranceName === "" || phoneNumber === "" || ownerName === "") {
@@ -57,7 +58,7 @@ Pet Care
             return true; // Form will submit if validation passes
         }
     </script>
-    <script src="../static/khalti.js">
+    
         
     </script>
 {%endblock body%}

@@ -38,12 +38,11 @@ class Hostel(models.Model):
     # def __str__(self):
     #     return self.email
 
-class InsurancePurchase(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    insurance_plan = models.ForeignKey('InsurancePlan', on_delete=models.CASCADE)
-    transaction_id = models.CharField(max_length=100)
-    payment_status = models.BooleanField(default=False)
-    purchase_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.user.username}'s Insurance Purchase"
+class Insurance(models.Model):
+    client_id = models.AutoField(default=1),
+    insurance_name = models.CharField(max_length=50),
+    pet_name = models.CharField(max_length=50),
+    owner_name = models.CharField(max_length=50),
+    phone_number = models.models.PhoneNumberField(),
+    startDate = models.DateField(),
+    

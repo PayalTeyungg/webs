@@ -1,18 +1,13 @@
 from django.forms import ModelForm
 from .models import Contact
-from django import forms
-from .models import InsurancePurchase
-
+from .models import Insurance
 
 class ContactForm(ModelForm):
   class Meta:
       model = Contact
       fields = '__all__'
      
-
-class InsurancePurchaseForm(forms.ModelForm):
-    class Meta:
-        model = InsurancePurchase
-        fields = []
-
-    
+class Insuranceform(ModelForm):
+   class Meta:
+      model = Insurance
+      fields='__all__'

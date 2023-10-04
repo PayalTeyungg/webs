@@ -39,8 +39,8 @@ urlpatterns = [
     path("insurance/",views.insurance,name="insurance"),
     path("hostel/",views.hostel,name="hostel"),
     path("booking/",views.booking,name='booking'),
-    path('<int:plan_id>/purchase/', views.purchase_insurance, name='purchase_insurance'),
-    path('purchase/success/', views.purchase_success, name='insurance_purchase_success'),
+    path("payment/",views.payment,name='payment')
+    
     
     
     
