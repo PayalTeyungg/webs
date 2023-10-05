@@ -77,7 +77,7 @@ function displayInputValuesAndSuggestion() {
     var breed = document.getElementById('breed').value;
     var resultDiv = document.querySelector('.result-set');
     
-    
+    // Create a new div to display the input values
     var outputDiv = document.createElement('div');
     outputDiv.className = 'result-set'; // Add CSS class
     outputDiv.innerHTML = '<strong>Pet Name:</strong> ' + name + '<br>' +
@@ -85,24 +85,27 @@ function displayInputValuesAndSuggestion() {
                           '<strong>Weight:</strong> ' + weight + '<br>' +
                           '<strong>Breed:</strong> ' + breed + '<br>';
     
-   
+    // Create food lists based on breed
     var foodLists = {
         'Golden Retriever': {
             'puppy': ['Chicken Breast Boiled:50gm/twice a day', 'Cerelac every 4hours ' ,'Plain Rice with Curd once a day'],
             'adult': ['Chicken Breast Boiled:100gm with plain rice :75gm/twice a day', 'Adult Dog Food:100gm/twice a day','Boiled Vegetables:250gm/thrice a day'],
             'old dogs': ['Chicken broth: 1 bowl/3 times a day', 'Plain rice(50gm) with boiled vegetable(any portion)/twice a day']
+
         },
-        'Japanese Spitz': {
+        'Labrador Retriever': {
             'puppy': ['Cerelac every six hours', 'Plain rice(25gm)with curd once a day'],
             'adult': ['Boiled Chicken :45gm with palin rice:50gm', 'Adult dog food:50gm/twice a day','Boiled Vegetables:150gm/twice a day'],
             'old dogs': ['Chicken broth: 1 bowl/2 times a day', 'Plain rice(25gm) with boiled vegetable(any portion)/twice a day']
+
         },
         'German Shepherd': {
             'puppy': ['Chicken Breast Boiled:50gm/twice a day', 'Cerelac every 4hours ' ,'Plain Rice with Curd once a day'],
             'adult': ['Chicken Breast Boiled:400gm with plain rice :150gm/twice a day', 'Adult Dog Food:100gm/twice a day','Boiled Vegetables:500gm/thrice a day'],
             'old dogs': ['Chicken Breast Boiled:300gm with plain rice :150gm/twice a day','Plain rice(25gm) with boiled vegetable(any portion)/twice a day']
+
         },
-        
+        // add more food list 
     };
     
     // age define
@@ -115,7 +118,7 @@ function displayInputValuesAndSuggestion() {
         lifeStage = 'old';
     }
     
-    var foodList = foodLists[breed] && foodLists[breed][lifeStage] ? foodLists[breed][lifeStage] : ['xyz', 'abc'];
+    var foodList = foodLists[breed] && foodLists[lifeStage] ? foodLists[breed][lifeStage] : ['xyz', 'abc'];
     
     var foodSuggestion = 'Suggested food for ' + breed + ' ' + lifeStage + ' dogs:<ul class="food-list">';
     foodList.forEach(function(item) {

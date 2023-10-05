@@ -5,10 +5,11 @@ Pet Care
 {% endblock title %}
 
 {% block style %}
+<script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="../static/css/payment.css">
 {%endblock style%}
-
 {%block body%}
     <h1>Pet Insurance Form</h1>
     <form id="insuranceForm" method="post" onclick="return validateForm()">
@@ -35,7 +36,7 @@ Pet Care
         <label for="startDate">Start Date:</label>
         <input type="Date" id="startDate"name="startDate" required>
         <br><br>
-        <button onclick="validateForm()" id="payment-button">Submit and Pay with Khalti</button>
+        <button  id="payment-button">Submit and Pay with Khalti</button>
         
     </form>
 
@@ -45,7 +46,6 @@ Pet Care
             var insuranceName = document.getElementById("insuranceName").value;
             var phoneNumber = document.getElementById("phoneNumber").value;
             var ownerName = document.getElementById("ownerName").value;
-            var ownerName = document.getElementById("startDate").value;
 
             // Simple validation example (you can add more checks as needed)
             if (petName === "" || insuranceName === "" || phoneNumber === "" || ownerName === "") {
@@ -57,10 +57,49 @@ Pet Care
 
             return true; // Form will submit if validation passes
         }
+
+
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_67696601b50a424da1a9f9dc0a45a568",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "paymentPreference": [
+                "KHALTI",
+                
+            ],
+            "eventHandler": {
+                onSuccess(payload) {
+                    // hit merchant api for initiating verfication
+                    console.log(payload);
+                },
+                onError(error) {
+                    console.log(error);
+                },
+                onClose() {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            var val=validateForm();
+
+
+            // minimum transaction amount must be 10, i.e 1000 in paisa.
+            if(val)
+            {
+                checkout.show({ amount: 1000 });
+
+
+            }
+        }
     </script>
-    
+    <script src="../static/khalti.js">
         
     </script>
 {%endblock body%}
 </html>
-

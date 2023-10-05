@@ -38,11 +38,5 @@ class Hostel(models.Model):
     # def __str__(self):
     #     return self.email
 
-class Insurance(models.Model):
-    client_id = models.AutoField(default=1),
-    insurance_name = models.CharField(max_length=50),
-    pet_name = models.CharField(max_length=50),
-    owner_name = models.CharField(max_length=50),
-    phone_number = models.models.PhoneNumberField(),
-    startDate = models.DateField(),
+
     
